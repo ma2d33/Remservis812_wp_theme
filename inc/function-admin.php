@@ -24,6 +24,7 @@
 	add_action( 'admin_menu', 'rem_add_admin_page' );
 
 	function rem_custom_settings(){
+		register_setting( 'rem-setting-group', 'sidebar_picture');
 		register_setting( 'rem-setting-group', 'first_name');
 		register_setting('rem-setting-group','last_name');
 		register_setting('rem-setting-group','side_description');
@@ -32,6 +33,7 @@
 		register_setting('rem-setting-group','vk_link');
 
 		add_settings_section( 'rem-sidebar-options','Sidebar options','rem_sidebar_options', 'rem812_options' );
+		add_settings_field( 'rem-sidebar-picture','Sidebar Image','rem_sidebar_picture', 'rem812_options','rem-sidebar-options');
 		add_settings_field( 'sidebar-name', 'Name', 'rem_sidebar_name','rem812_options','rem-sidebar-options');
 		add_settings_field( 'sidebar-description', 'Description', 'rem_sidebar_description','rem812_options','rem-sidebar-options');
 		add_settings_field( 'sidebar-twitter', 'Twitter link', 'rem_sidebar_twitter','rem812_options','rem-sidebar-options');
@@ -45,6 +47,11 @@
 		echo "Customize your sidebar info";
 	}
 
+
+	function rem_sidebar_picture(){
+		$picture = esc_attr(get_option('sidebar_picture'));
+		echo '<input type="button" class="button button-secondary" value="Upload sidebar picture" id="upload-button" /> <input type="hidden" name="sidebar_picture" value="'.$picture.'"/>';
+	}
 
 	function rem_sidebar_description(){
 		$description = esc_attr(get_option('side_description'));

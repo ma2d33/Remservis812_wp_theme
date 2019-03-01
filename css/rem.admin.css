@@ -1,0 +1,17 @@
+/* 
+	
+	@package rem812 theme
+	
+ */
+
+
+.rem-general-form,.rem-sidebar-preview{
+	display: inline-block;float: left;
+}
+
+.rem-sidebar-preview{width: 280px;background-color: #3c5393;padding: 20px;text-align: center; margin-right: 20px;}
+.rem-sidebar{display: block;text-align: center;}
+h1.rem-name,
+h2.rem-description{font-weight: 300;color: #fff}
+h1.rem-name{font-size: 24px;margin: 0 0 10px;}
+h2.rem-description{font-size: 13px;margin: 0 0 10px;}
