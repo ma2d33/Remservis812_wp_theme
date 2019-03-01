@@ -25,8 +25,19 @@
 
 	function rem_custom_settings(){
 		register_setting( 'rem-setting-group', 'first_name');
+		register_setting('rem-setting-group','last_name');
+		register_setting('rem-setting-group','side_description');
+		register_setting('rem-setting-group','twitter_link','rem_sanitize_twitter_link');
+		register_setting('rem-setting-group','facebook_link');
+		register_setting('rem-setting-group','vk_link');
+
 		add_settings_section( 'rem-sidebar-options','Sidebar options','rem_sidebar_options', 'rem812_options' );
 		add_settings_field( 'sidebar-name', 'Name', 'rem_sidebar_name','rem812_options','rem-sidebar-options');
+		add_settings_field( 'sidebar-description', 'Description', 'rem_sidebar_description','rem812_options','rem-sidebar-options');
+		add_settings_field( 'sidebar-twitter', 'Twitter link', 'rem_sidebar_twitter','rem812_options','rem-sidebar-options');
+		add_settings_field( 'sidebar-facebook', 'Facebook link', 'rem_sidebar_facebook','rem812_options','rem-sidebar-options');
+		add_settings_field( 'sidebar-vk', 'Vk link', 'rem_sidebar_vk','rem812_options','rem-sidebar-options');
+
 	}
 
 
@@ -34,9 +45,32 @@
 		echo "Customize your sidebar info";
 	}
 
+
+	function rem_sidebar_description(){
+		$description = esc_attr(get_option('side_description'));
+		echo '<input type="text" name="side_description" value="'.$description.'" placeholder="Sidebar description"/>';
+	}
+
+	function rem_sidebar_twitter(){
+		$Twitter = esc_attr(get_option('twitter_link'));
+		echo '<input type="text" name="twitter_link" value="'.$Twitter.'" placeholder="Twitter Link"/><p class="description">Enter Twitter name without the @ character</p>';
+	}
+
+	function rem_sidebar_vk(){
+		$Vk = esc_attr(get_option('vk_link'));
+		echo '<input type="text" name="vk_link" value="'.$Vk.'" placeholder="Vk Link"/>';
+	}
+
+	function rem_sidebar_facebook(){
+		$Facebook = esc_attr(get_option('facebook_link'));
+		echo '<input type="text" name="facebook_link" value="'.$Facebook.'" placeholder="Facebook Link"/>';
+	}
+
 	function rem_sidebar_name(){
 		$firstName = esc_attr(get_option('first_name'));
-		echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="Name"/>';
+		$lastName = esc_attr(get_option('last_name'));
+		echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="Name"/> 
+		<input type="text" name="last_name" value="'.$lastName.'" placeholder="Last Name"/>';
 	}
 
 	function rem_theme_create_page(){
@@ -51,3 +85,12 @@
 		echo '<h1>Rem8k12 Css Options</h1>';
 
 	}					
+
+
+	// sanitisation options
+
+	function rem_sanitize_twitter_link($input){
+		$output = sanitize_text_field( $input );
+		$output = str_replace('@','', $output);
+		return $output;
+	}
