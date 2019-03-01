@@ -17,6 +17,14 @@ jQuery(document).ready( function($) {
 			multiple:false
 		});
 
-	});
+		mediaUploader.on('select',function(){
+			attachment = mediaUploader.state().get('selection').first().toJSON();
+			$('#sidebar-picture').val(attachment.url);
+			$('#sidebar-picture-preview').attr('src',attachment.url);
+		});/* select()*/
+
+		mediaUploader.open();
+
+	});/* click() */
 
 });
