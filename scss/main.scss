@@ -1,0 +1,135 @@
+
+/* 
+	COLORS
+ */
+
+$mainBlude: #3c5393;
+$darkBlue: #2c345a;
+
+/* 
+	fonts
+ */
+
+@font-face {
+  font-family: oswaldLight;
+  src: url("../fonts/Oswald-Light.ttf");
+}
+
+header{
+	nav{
+	padding:25px 0;
+	}
+}
+
+body{
+	font-family: oswaldLight;
+}
+
+section{
+	max-width: 1950px;
+	margin:0 auto;
+}
+
+.table{
+	font-size: 20px;
+}
+.row{
+	margin:0px;
+	padding:0px;
+}
+
+
+.rem-content-title{
+	font-weight: 700;
+}
+
+
+/* 
+============
+	sidebar
+============
+*/
+.rem-side-menu{
+	background-color: $mainBlude;
+	color:white;
+	padding:0px;
+	font-size: 20px;
+	a {
+		color:white;
+		&:hover{
+			color:black;
+		}
+	}
+}
+
+.rem-advert-div{
+	
+	img{
+		width:100%;
+	}
+}
+
+
+/* 
+====================
+	page	content
+====================
+ */
+
+ .rem-content-div{
+ 	padding:15px;
+ }
+
+ .rem-important-info{
+ 	border:4px solid $mainBlude;
+ 	padding:15px;
+ 	font-size: 24px;
+ 	overflow: hidden;
+ }
+.rem-main-col{
+	margin:0px;
+	padding:0px;
+	border:1px solid #ccc;
+}
+
+
+/* 
+	==========
+	HEADER
+	==========
+ */
+
+.rem-header-nav{
+	background-color:$mainBlude;
+	margin:0;
+}
+
+.rem-header-image{
+	min-height: 400px;
+	background-position: center;
+	background-size: cover;
+	position:relative;
+}
+
+.rem-header-text{
+	position: absolute;
+	top: 25%;
+	left: 15%;
+	color:white;
+	margin: 0 auto;
+	font-weight: 700;
+	text-shadow: 2px 2px 2px #0009;
+	font-size: 5rem;
+	width:450px;
+}
+ /* 
+	===========
+		footer
+	===========
+ */
+
+ .rem-footer{
+ 	background-color:$darkBlue;
+ 	min-height: 150px;
+ 	color:white;
+ }
